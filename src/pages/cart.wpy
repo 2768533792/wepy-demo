@@ -1,70 +1,3 @@
-<template>
-  <view class="cart">
-    <view class="goodsList">
-      <view wx:if="{{cartList.length}}">
-        <repeat for="{{cartList}}" key="index" index="index" item="item">
-          <view class="swipe-item-wrapper">
-            <view class="swipe-content" style="left:{{item.style === 0 || item.style === 'undefined' ? '0' : item.style + 'rpx'}}" @touchstart="ts" @touchmove="tm" @touchend="te">
-              <view class="goods-info">
-                <icon class="icon_check" type="success" size="20" />
-                <view class="img-box">
-                  <image src="{{item.img}}" class="img" />
-                </view>
-                <view class="text-box">
-                  <view class="goods-title">
-                    <navigator url="">{{item.title}}</navigator>
-                  </view>
-                  <view class="goods-price">￥{{item.price}}</view>
-                  <view class="buy-num">
-                    <view class="jian-btn">-</view>
-                    <input type="number" value="{{item.num}}" disabled />
-                    <view class="jia-btn">+</view>
-                  </view>
-                </view>
-              </view>
-            </view>
-          </view>
-        </repeat>
-      </view>
-    </view>
-  </view>
-</template>
-
-<script>
-import wepy from 'wepy'
-
-export default class Cart extends wepy.page {
-  config = {
-    navigationBarTitleText: '购物车'
-  }
-  data = {
-    cartList: [
-      {
-        id: '01',
-        img: '',
-        title: '艾格-促销专用商品',
-        price: '100.00',
-        num: 3
-      },
-      {
-        id: '02',
-        img: '',
-        title: '艾格 ETAM 彩色数码印花无袖连衣裙',
-        price: '320.00',
-        num: 2
-      },
-      {
-        id: '03',
-        img: '',
-        title: '艾格 WEEKEND 2015冬新品W经典V领立体条纹大衣 ',
-        price: '599.00',
-        num: 1
-      }
-    ]
-  }
-}
-</script>
-
 <style lang="less">
 .goodsList {
   padding-bottom: 110rpx;
@@ -288,3 +221,70 @@ export default class Cart extends wepy.page {
   text-align: center;
 }
 </style>
+
+<template>
+  <view class="cart">
+    <view class="goodsList">
+      <view wx:if="{{cartList.length}}">
+        <repeat for="{{cartList}}" key="index" index="index" item="item">
+          <view class="swipe-item-wrapper">
+            <view class="swipe-content" style="left:{{item.style === 0 || item.style === 'undefined' ? '0' : item.style + 'rpx'}}" @touchstart="ts" @touchmove="tm" @touchend="te">
+              <view class="goods-info">
+                <icon class="icon_check" type="success" size="20" />
+                <view class="img-box">
+                  <image src="{{item.img}}" class="img" />
+                </view>
+                <view class="text-box">
+                  <view class="goods-title">
+                    <navigator url="">{{item.title}}</navigator>
+                  </view>
+                  <view class="goods-price">￥{{item.price}}</view>
+                  <view class="buy-num">
+                    <view class="jian-btn">-</view>
+                    <input type="number" value="{{item.num}}" disabled />
+                    <view class="jia-btn">+</view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </repeat>
+      </view>
+    </view>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+
+export default class Cart extends wepy.page {
+  config = {
+    navigationBarTitleText: '购物车'
+  }
+  data = {
+    cartList: [
+      {
+        id: '01',
+        img: '',
+        title: '艾格-促销专用商品',
+        price: '100.00',
+        num: 3
+      },
+      {
+        id: '02',
+        img: '',
+        title: '艾格 ETAM 彩色数码印花无袖连衣裙',
+        price: '320.00',
+        num: 2
+      },
+      {
+        id: '03',
+        img: '',
+        title: '艾格 WEEKEND 2015冬新品W经典V领立体条纹大衣 ',
+        price: '599.00',
+        num: 1
+      }
+    ]
+  }
+}
+</script>
