@@ -1,0 +1,26 @@
+<style lang="less">
+
+</style>
+
+<template>
+  <view class="container">
+    <view class="top_search">
+      <view class="search_read_only">
+        <navigator class="search_content" url="/pages/search">
+          <i class="iconfont icon-search"></i>
+          <view class="search_input">搜索商品</view>
+        </navigator>
+      </view>
+    </view>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+
+export default class Cart extends wepy.page {
+  config = {
+    navigationBarTitleText: '分类'
+  }
+}
+</script>

@@ -1,0 +1,17 @@
+<style lang="less">
+
+</style>
+
+<template>
+  <view class="container">会员中心</view>
+</template>
+
+<script>
+import wepy from 'wepy'
+
+export default class Cart extends wepy.page {
+  config = {
+    navigationBarTitleText: '会员中心'
+  }
+}
+</script>
