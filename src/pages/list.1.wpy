@@ -1,0 +1,40 @@
+<style lang="less">
+.list-wrapper {
+  .list {
+    .item {
+      text-align: center;
+      font-size: 36rpx;
+      line-height: 120rpx;
+      border-bottom: 2rpx solid #ddd;
+      &:nth-child(even) {
+        background-color: #f5f5f5;
+      }
+    }
+  }
+}
+</style>
+
+<template>
+  <view class="list-wrapper">
+    <scroll-view scroll-y="true" class="list" style="height: 400px;">
+      <view wx:for="{{list}}" class="item" wx:key="index" item="item">
+        {{index + ' ' + item}}
+      </view>
+    </scroll-view>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+import list from '@/data/list'
+
+export default class List extends wepy.page {
+  config = {
+    navigationBarTitleText: '演示上拉加载列表'
+  }
+
+  data = {
+    list: list
+  }
+}
+</script>

@@ -1,0 +1,60 @@
+<style lang="less">
+.list-wrapper {
+  .list {
+    .item {
+      text-align: center;
+      font-size: 36rpx;
+      line-height: 120rpx;
+      border-bottom: 2rpx solid #ddd;
+      &:nth-child(even) {
+        background-color: #f5f5f5;
+      }
+    }
+  }
+}
+</style>
+
+<template>
+  <view class="list-wrapper">
+    <scroll-view scroll-y="true" style="height: 400px;" bindscrolltolower="loadMore" class="list">
+      <view wx:for="{{list}}" wx:key="index" item="item" class="item">
+        {{index + ' ' + item}}
+      </view>
+    </scroll-view>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+import listData from '@/data/listData'
+
+export default class List extends wepy.page {
+  config = {
+    navigationBarTitleText: '演示上拉加载列表'
+  }
+
+  data = {
+    list: [],
+    currentPage: 1,
+    pageSize: 8
+  }
+
+  listSlice (cur) {
+    let start = (cur - 1) * this.pageSize
+    let end = cur * this.pageSize
+    let listChunk = listData.slice(start, end)
+    this.list = [...this.list, ...listChunk]
+  }
+
+  onLoad () {
+    const listChunk = listData.slice(0, 8)
+    this.list = listChunk
+  }
+
+  loadMore () {
+    console.log('页数：', this.currentPage)
+    this.currentPage++
+    this.listSlice(this.currentPage)
+  }
+}
+</script>

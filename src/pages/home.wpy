@@ -1,9 +1,15 @@
 <style lang="less">
-
+.nav {
+  text-align: center;
+  padding: 20rpx;
+  color: blue;
+}
 </style>
 
 <template>
-  <view class="container">首页内容</view>
+  <view class="container">
+    <view class="nav"><navigator url="/pages/list">演示上拉加载列表</navigator></view>
+  </view>
 </template>
 
 <script>
