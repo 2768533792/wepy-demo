@@ -86,14 +86,14 @@ export default class List extends wepy.page {
   }
 
   methods= {
-    // switchNav(i, e) {
-    //   if (this.currentTab === i) {
-    //     return false
-    //   } else {
-    //     this.currentTab = i
-    //     this.$apply()
-    //   }
-    // }
+    switchNav(i, e) {
+      if (this.currentTab === i) {
+        return false
+      } else {
+        this.currentTab = i
+        this.$apply()
+      }
+    }
   }
 }
 </script>
