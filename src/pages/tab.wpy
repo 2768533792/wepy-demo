@@ -1,0 +1,99 @@
+<style>
+.swiper-tab {
+  width: 100%;
+  border-bottom: 1rpx solid #eee;
+  text-align: center;
+  line-height: 80rpx;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background: #fff;
+}
+.swiper-tab-list {
+  font-size: 30rpx;
+  color: #777777;
+  padding: 0 40rpx;
+  position: relative;
+}
+.active {
+  color: #eb6623;
+  border-bottom: 5rpx solid #eb6623;
+}
+.dot {
+  position: absolute;
+  display: flex;
+  width: 37rpx;
+  height: 35rpx;
+  line-height: 40rpx;
+  text-align: center;
+  align-items: center; /* 垂直居中 */
+  justify-content: center; /* 水平居中 */
+  background: #eb6623;
+  border-radius: 100px;
+  color: #fff;
+  z-index: 999;
+  font-size: 26rpx;
+  top: 0;
+  right: 10rpx;
+}
+
+.tab-content {
+  text-align: center;
+  padding: 100rpx 50rpx;
+}
+</style>
+
+<template>
+  <view>
+    <!-- 选项卡导航 -->
+    <view class="swiper-tab">
+      <view wx:for="{{tabList}}" wx:key="index" class="swiper-tab-list {{currentTab==index ? 'active' : ''}}" bindtap="switchNav({{index}})">
+        {{item.name}}
+        <view class="dot" wx:if="{{item.dotNum>0}}">{{item.dotNum}}</view>
+      </view>
+    </view>
+    <!-- 切换的内容 -->
+    <view class="tab-content" wx:if="{{currentTab===0}}">选项卡演示内容1111111</view>
+    <view class="tab-content" wx:if="{{currentTab===1}}">选项卡演示内容2222222</view>
+    <view class="tab-content" wx:if="{{currentTab===2}}">选项卡演示内容3333333</view>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+
+export default class List extends wepy.page {
+  config = {
+    navigationBarTitleText: '选项卡'
+  }
+
+  data = {
+    tabList: [
+      {
+        name: '未使用',
+        dotNum: 2
+      },
+      {
+        name: '已使用',
+        dotNum: 3
+      },
+      {
+        name: '已过期',
+        dotNum: 10
+      }
+    ],
+    currentTab: 0
+  }
+
+  methods= {
+    // switchNav(i, e) {
+    //   if (this.currentTab === i) {
+    //     return false
+    //   } else {
+    //     this.currentTab = i
+    //     this.$apply()
+    //   }
+    // }
+  }
+}
+</script>

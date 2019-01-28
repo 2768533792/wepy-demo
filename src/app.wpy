@@ -20,7 +20,8 @@ export default class extends wepy.app {
       'pages/category', // 分类
       'pages/cart', // 购物车
       'pages/member', // 会员中心
-      'pages/list' // 列表页
+      'pages/list', // 列表页
+      'pages/tab' // 选项卡演示页
     ],
     window: {
       backgroundTextStyle: 'light',
